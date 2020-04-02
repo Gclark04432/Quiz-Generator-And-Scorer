@@ -6,7 +6,6 @@ function Question({ currentQuestion }) {
 
   return (
     <section>
-      <h2>I'm a question:</h2>
       <h3>{currentQuestion.question}</h3>
     </section>
   )

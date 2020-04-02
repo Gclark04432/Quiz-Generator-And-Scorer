@@ -1,0 +1,22 @@
+.answer {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.7rem;
+  display: block;
+  border: solid 2px lightgoldenrodyellow;
+  background-color: red;
+  border-radius: 25px;
+}
+
+.answer:hover {
+  background-color: blue;
+  cursor: grabbing;
+}
+
+.answer-revealed.right-answer {
+  background-color: green;
+}
+
+.answer-revealed.wrong-answer {
+  background-color: grey;
+}

@@ -1,19 +1,35 @@
-import React, {Fragment} from 'react';
+import React, {useState, Fragment} from 'react';
+import './Answer.css';
 
 function Answer({ currentQuestion }){
+  const [revealed, setRevealed] = useState(false);
+
   if(!currentQuestion) return null;
 
   const incorrectAnswers = currentQuestion.incorrect_answers.map((answer, index) => {
     return(
-      <h4 key={index}>{answer}</h4>
+      <span
+        className={"answer wrong-answer " + (revealed? 'answer-revealed' : null)}
+        key={index}>
+          {answer}
+      </span>
     )
   })
 
+  const revealAnswer = () => {
+
+  }
+
   return (
-    <>
-      <h4>Correct Answer: {currentQuestion.correct_answer}</h4>
+    <div>
+      <span
+        className={"answer right-answer " + (revealed? 'answer-revealed' : null)}
+        >
+          {currentQuestion.correct_answer}
+      </span>
       {incorrectAnswers}
-    </>
+      <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
+    </div>
   )
 }
 
