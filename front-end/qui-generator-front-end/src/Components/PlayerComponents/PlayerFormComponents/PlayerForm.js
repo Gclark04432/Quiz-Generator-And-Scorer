@@ -41,6 +41,7 @@ class PlayerForm extends Component {
     event.preventDefault();
     const newPlayer = {
       name: this.state.name,
+      points: 0
     }
     this.props.handlePlayerAdd(newPlayer);
   }

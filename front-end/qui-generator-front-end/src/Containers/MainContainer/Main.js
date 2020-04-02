@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ScoreBox from '../ScoreContainer/ScoreBox.js'
 import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js'
+import QuestionBox from '../QuestionContainer/QuestionBox.js'
+
 import './Main.css'
 
 class Main extends Component{
@@ -32,6 +34,7 @@ class Main extends Component{
           <p className="title-text">Hi, I'm the main container</p>
           <ScoreBox players={this.state.players}/>
           <PlayerForm handlePlayerAdd={this.handlePlayerAdd}/>
+          <QuestionBox/>
           </div>
       </main>
     )
