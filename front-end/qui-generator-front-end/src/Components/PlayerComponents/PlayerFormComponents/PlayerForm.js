@@ -5,7 +5,7 @@ class PlayerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: "",
+      name: "",
       points: 0
     }
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
@@ -19,7 +19,7 @@ class PlayerForm extends Component {
         <input
           type="text"
           placeholder="Player's Name"
-          value={this.state.player}
+          value={this.state.name}
           onChange={this.handlePlayerChange}
           />
 
@@ -34,13 +34,13 @@ class PlayerForm extends Component {
   }
 
   handlePlayerChange(event) {
-    this.setState({ player: event.target.value })
+    this.setState({ name: event.target.value })
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
     const newPlayer = {
-      player: this.state.player,
+      name: this.state.name,
     }
     this.props.handlePlayerAdd(newPlayer);
   }
