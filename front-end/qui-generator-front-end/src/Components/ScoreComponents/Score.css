@@ -1,0 +1,7 @@
+.score {
+  border: solid 2px yellow;
+  margin: 2px;
+  width: 200px;
+  color: red;
+  text-align: center;
+}

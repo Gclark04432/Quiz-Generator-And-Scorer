@@ -1,0 +1,11 @@
+.scoreslist {
+  border: solid 1px orange;
+  width: 220px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  padding: 0;
+}

@@ -5,9 +5,9 @@ import Main from './Containers/MainContainer/Main.js';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <Main/>
-    </div>
+    </main>
   );
 }
 

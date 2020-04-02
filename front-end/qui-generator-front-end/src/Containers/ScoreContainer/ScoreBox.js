@@ -16,6 +16,11 @@ class ScoreBox extends Component{
           id: 2,
           player: "Dawn",
           points: 3
+        },
+        {
+          id: 3,
+          player: "Drew",
+          points: 10
         }
       ]
     }
