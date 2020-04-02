@@ -8,14 +8,11 @@ class Main extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      players: [
+      players:[
         {
           id: 1,
           name: "Gary",
-        },
-        {
-          id: 2,
-          name: "Dawn",
+          points: 0
         }
       ]
     }
@@ -33,7 +30,7 @@ class Main extends Component{
       <main>
         <div>
           <p className="title-text">Hi, I'm the main container</p>
-          <ScoreBox/>
+          <ScoreBox players={this.state.players}/>
           <PlayerForm handlePlayerAdd={this.handlePlayerAdd}/>
           </div>
       </main>

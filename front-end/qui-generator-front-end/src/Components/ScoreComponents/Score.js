@@ -2,10 +2,10 @@ import React from 'react';
 
 import './Score.css';
 
-function Score({score}) {
+function Score({ name, points }) {
   return (
     <section className="score">
-      <h1>{score.player} has {score.points} points!</h1>
+      <h1>{name} has {points} points!</h1>
     </section>
   )
 }

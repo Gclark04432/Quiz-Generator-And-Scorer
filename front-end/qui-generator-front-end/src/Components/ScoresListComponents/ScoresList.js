@@ -2,13 +2,14 @@ import React, {Fragment} from 'react';
 import Score from '../ScoreComponents/Score.js'
 import './ScoresList.css';
 
-function ScoresList({ scores }){
+function ScoresList({ players }){
 
-  const scoreComponents = scores.map(score => {
+  const gamePlayers = players.map(player => {
     return (
         <Score
-          key={score.id}
-          score={score}>
+          key={player.id}
+          name={player.name}
+          points={player.points}>
         </Score>
     )
   })
@@ -17,7 +18,7 @@ function ScoresList({ scores }){
     <section className="scoreslist">
       <h3>Scores Are Below:</h3>
       <ul>
-        {scoreComponents}
+        {gamePlayers}
       </ul>
     </section>
   )
