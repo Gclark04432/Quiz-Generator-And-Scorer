@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Question from '../../Components/QuestionComponents/QuestionComponent.js'
+import Answer from '../../Components/QuestionComponents/Answer.js'
 
 function QuestionBox() {
 
@@ -15,7 +16,8 @@ useEffect(() => {
   return (
     <section>
       <h1>Im' the question box</h1>
-      <Question questions={questions}/>
+      <Question currentQuestion={questions[0]}/>
+      <Answer currentQuestion={questions[0]}/>
     </section>
   )
 }
