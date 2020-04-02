@@ -1,0 +1,4 @@
+.score-box {
+  grid-column: 1;
+  grid-row: 2/4;
+}

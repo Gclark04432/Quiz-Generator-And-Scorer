@@ -29,13 +29,11 @@ class Main extends Component{
 
   render() {
     return (
-      <main>
-        <div>
+      <main className="main">
           <p className="title-text">Hi, I'm the main container</p>
           <ScoreBox players={this.state.players}/>
           <PlayerForm handlePlayerAdd={this.handlePlayerAdd}/>
           <QuestionBox/>
-          </div>
       </main>
     )
   }

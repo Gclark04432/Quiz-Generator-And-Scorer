@@ -3,4 +3,7 @@
   justify-content: center;
   text-align: center;
   border: solid 2px purple;
+  padding: 10px;
+  grid-column: 2;
+  grid-row: 2/4;
 }

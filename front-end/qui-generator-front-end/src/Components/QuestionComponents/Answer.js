@@ -28,6 +28,7 @@ function Answer({ currentQuestion }){
           {currentQuestion.correct_answer}
       </span>
       {incorrectAnswers}
+      <br/>
       <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
     </div>
   )

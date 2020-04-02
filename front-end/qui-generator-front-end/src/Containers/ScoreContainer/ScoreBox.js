@@ -5,7 +5,7 @@ import ScoreList from '../../Components/ScoresListComponents/ScoresList.js'
   function ScoreBox({ players }){
 
     return (
-      <article>
+      <article className="score-box">
         <ScoreList players={players}/>
       </article>
     )

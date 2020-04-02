@@ -2,3 +2,10 @@
   color: #EE6055;
   background-color: black;
 }
+
+.main {
+  display: grid;
+  grid-template-columns: 400px auto;
+  grid-template-rows: 20% auto 10%;
+  grid-gap: 20px;
+}

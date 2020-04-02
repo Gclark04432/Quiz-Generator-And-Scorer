@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PlayerForm.css';
 
 class PlayerForm extends Component {
 
