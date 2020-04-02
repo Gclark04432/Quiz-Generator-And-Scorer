@@ -5,19 +5,17 @@ function QuestionBox() {
 
   const [questions, setQuestions] = useState([]);
 
+useEffect(() => {
   fetch("https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple")
   .then(res => res.json())
   .then(data => data.results)
   .then(questions => setQuestions(questions))
-
-  useEffect(() => {
-    console.log("I'm re-rendering");
-  },[])
+}, [])
 
   return (
     <section>
       <h1>Im' the question box</h1>
-      <Question/>
+      <Question questions={questions}/>
     </section>
   )
 }
