@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import ScoreBox from '../ScoreContainer/ScoreBox.js'
 import './Main.css'
 
 function Main() {
@@ -6,6 +7,7 @@ function Main() {
     <main>
       <div>
         <p className="title-text">Hi, I'm the main container</p>
+        <ScoreBox/>
       </div>
     </main>
   )
