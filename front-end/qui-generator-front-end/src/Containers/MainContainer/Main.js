@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ScoreBox from '../ScoreContainer/ScoreBox.js'
 import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js'
 import QuestionBox from '../QuestionContainer/QuestionBox.js'
+import GameBox from '../GameContainer/GameBox.js'
 
 import './Main.css'
 
@@ -30,9 +31,9 @@ class Main extends Component{
   render() {
     return (
       <main className="main">
+          <GameBox/>
           <p className="title-text">Hi, I'm the main container</p>
-          <ScoreBox players={this.state.players}/>
-          <PlayerForm handlePlayerAdd={this.handlePlayerAdd}/>
+          <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
           <QuestionBox/>
       </main>
     )

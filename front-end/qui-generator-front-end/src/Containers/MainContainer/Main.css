@@ -1,6 +1,8 @@
 .title-text {
   color: #EE6055;
   background-color: black;
+      grid-column: 1/2;
+      grid-row: 1;
 }
 
 .main {

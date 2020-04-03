@@ -17,10 +17,7 @@ function QuestionBox() {
   }, [])
 
   const handleNextQuestionClicked = () => {
-    console.log("Next Question Clicked");
-    console.log(`Index is ${questionIndex}`);
     setQuestionIndex(questionIndex + 1);
-    console.log(`Index is ${questionIndex}`);
   }
 
   return (
