@@ -6,34 +6,50 @@ function Answer({ currentQuestion }){
 
   if(!currentQuestion) return null;
 
+  const possibleIndexes = [0,1,2,3];
+
   const handleAnswerClicked = (e) => {
     return e.target.textContent === currentQuestion.correct_answer ?
-      console.log("Correct answer clicked")
-      : console.log("Wrong Answer Clicked");
-    }
+    console.log('correct')
+    : console.log('wrong');
+  }
 
-  const incorrectAnswers = currentQuestion.incorrect_answers.map((answer, index) => {
+  const isCorrectAnswer = (answer) => {
+    return answer === currentQuestion.correct_answer ?
+    true
+    : false;
+  }
+
+  const possibleAnswers = [];
+  possibleAnswers.push(currentQuestion.correct_answer);
+  for (let i = 0; i < currentQuestion.incorrect_answers.length; i++){
+    possibleAnswers.push(currentQuestion.incorrect_answers[i])
+  }
+
+  const shuffledAnswers = [];
+  while (shuffledAnswers.length !== 4) {
+    var nextAnswerIndex = Math.floor(Math.random() * possibleAnswers.length);
+    if (!shuffledAnswers.includes(possibleAnswers[nextAnswerIndex])){
+      shuffledAnswers.push(possibleAnswers[nextAnswerIndex]);
+    }
+  }
+
+  const randomAnswers = shuffledAnswers.map((answer, index) => {
     return(
       <span
-        className={"answer wrong-answer " + (revealed? 'answer-revealed' : null)}
-        key={index}
-        onClick={handleAnswerClicked}>
-          {answer}
+      className={"answer " + (revealed? 'answer-revealed ' : null) + (isCorrectAnswer(answer)? ' right-answer': ' wrong-answer')}
+      key={index}
+      onClick={handleAnswerClicked}>
+      {answer}
       </span>
     )
   })
 
   return (
     <div>
-      <span
-        className={"answer right-answer " + (revealed? 'answer-revealed' : null)}
-        onClick={handleAnswerClicked}
-        >
-          {currentQuestion.correct_answer}
-      </span>
-      {incorrectAnswers}
-      <br/>
-      <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
+    {randomAnswers}
+    <br/>
+    <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
     </div>
   )
 }
