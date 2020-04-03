@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ScoreList from '../../Components/ScoresListComponents/ScoresList.js'
 
 

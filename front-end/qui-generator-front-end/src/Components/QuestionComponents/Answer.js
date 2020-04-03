@@ -1,12 +1,10 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState} from 'react';
 import './Answer.css';
 
 function Answer({ currentQuestion }){
   const [revealed, setRevealed] = useState(false);
 
   if(!currentQuestion) return null;
-
-  const possibleIndexes = [0,1,2,3];
 
   const handleAnswerClicked = (e) => {
     return e.target.textContent === currentQuestion.correct_answer ?
@@ -25,6 +23,7 @@ function Answer({ currentQuestion }){
   for (let i = 0; i < currentQuestion.incorrect_answers.length; i++){
     possibleAnswers.push(currentQuestion.incorrect_answers[i])
   }
+
 
   const shuffledAnswers = [];
   while (shuffledAnswers.length !== 4) {
@@ -49,7 +48,9 @@ function Answer({ currentQuestion }){
     <div>
     {randomAnswers}
     <br/>
-    <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
+      <div>
+        <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
+      </div>
     </div>
   )
 }
