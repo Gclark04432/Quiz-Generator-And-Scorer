@@ -22,6 +22,7 @@ class Main extends Component{
     }
     this.handlePlayerAdd = this.handlePlayerAdd.bind(this);
     this.handleGameAdd = this.handleGameAdd.bind(this);
+    this.handleAnswerClicked = this.handleAnswerClicked.bind(this);
   }
 
   handlePlayerAdd(newPlayer) {
@@ -34,13 +35,17 @@ class Main extends Component{
     this.setState({ difficulty: difficulty, genre: genre })
   }
 
+  handleAnswerClicked(response) {
+    console.log(response);
+  }
+
   render() {
     return (
       <main className="main">
           <GameBox handleGameAdd={this.handleGameAdd}/>
           <p className="title-text">Hi, I'm the main container</p>
           <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
-          <QuestionBox difficulty={this.state.difficulty} genre={this.state.genre}/>
+          <QuestionBox difficulty={this.state.difficulty} genre={this.state.genre} handleAnswerClicked={this.handleAnswerClicked}/>
       </main>
     )
   }

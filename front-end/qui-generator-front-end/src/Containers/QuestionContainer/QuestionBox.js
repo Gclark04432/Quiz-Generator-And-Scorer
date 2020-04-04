@@ -4,7 +4,7 @@ import Answer from '../../Components/QuestionComponents/Answer.js'
 
 import './QuestionBox.css';
 
-function QuestionBox({ genre, difficulty }) {
+function QuestionBox({ genre, difficulty, handleAnswerClicked }) {
 
   const [questions, setQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0)
@@ -26,7 +26,7 @@ function QuestionBox({ genre, difficulty }) {
   return (
     <section className="question-box">
       <Question currentQuestion={questions[questionIndex]}/>
-      <Answer currentQuestion={questions[questionIndex]}/>
+      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={handleAnswerClicked}/>
       <br/>
       <button onClick={handleNextQuestionClicked}>Next Question</button>
     </section>

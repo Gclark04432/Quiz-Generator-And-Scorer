@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import './Answer.css';
 
-function Answer({ currentQuestion }){
+function Answer({ currentQuestion, handleAnswerClicked }){
   const [revealed, setRevealed] = useState(false);
 
   if(!currentQuestion) return null;
 
-  const handleAnswerClicked = (e) => {
+  const handleAnswerSelected = (e) => {
     return e.target.textContent === currentQuestion.correct_answer ?
-    console.log('correct')
-    : console.log('wrong');
+    handleAnswerClicked(true)
+    :  handleAnswerClicked(false);
   }
 
   const isCorrectAnswer = (answer) => {
@@ -38,7 +38,7 @@ function Answer({ currentQuestion }){
       <span
       className={"answer " + (revealed? 'answer-revealed ' : null) + (isCorrectAnswer(answer)? ' right-answer': ' wrong-answer')}
       key={index}
-      onClick={handleAnswerClicked}>
+      onClick={handleAnswerSelected}>
       {answer}
       </span>
     )
