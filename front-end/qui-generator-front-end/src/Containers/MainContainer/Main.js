@@ -36,6 +36,9 @@ class Main extends Component{
   }
 
   handleAnswerClicked(response) {
+    const prevPlayerState = this.state.players;
+    prevPlayerState[0].points ++
+    this.setState({ players: [...prevPlayerState]})
     console.log(response);
   }
 
