@@ -18,7 +18,7 @@ class Main extends Component{
           points: 0
         }],
         difficulty: "easy",
-        genre: 10
+        genre: 11
     }
     this.handlePlayerAdd = this.handlePlayerAdd.bind(this);
     this.handleGameAdd = this.handleGameAdd.bind(this);

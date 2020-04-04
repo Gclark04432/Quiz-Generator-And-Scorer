@@ -17,29 +17,29 @@ function GameForm({ handleGameSubmit }) {
       </select>
 
       <select>
-        <option value="general">General Knowledge</option>
-        <option value="books">Books</option>
-        <option value="film">Film</option>
-        <option value="music">Music</option>
-        <option value="musicals">Musicals & Theatres</option>
-        <option value="television">Television</option>
-        <option value="video-games">Video Games</option>
-        <option value="board-games">Board Games</option>
-        <option value="science">Science & Nature</option>
-        <option value="computers">Computers</option>
-        <option value="mathematics">Mathematics</option>
-        <option value="mythology">Mythology</option>
-        <option value="sports">Sports</option>
-        <option value="geography">Geography</option>
-        <option value="history">History</option>
-        <option value="politics">Politics</option>
-        <option value="art">Art</option>
-        <option value="celebrities">Celebrities</option>
-        <option value="animals">Animals</option>
-        <option value="vehicles">Vehicles</option>
-        <option value="comics">Comics</option>
-        <option value="gadgets">Gadgets</option>
-        <option value="cartoons">Cartoons & Animations</option>
+        <option value="9">General Knowledge</option>
+        <option value="10">Books</option>
+        <option value="11">Film</option>
+        <option value="12">Music</option>
+        <option value="13">Musicals & Theatres</option>
+        <option value="14">Television</option>
+        <option value="15">Video Games</option>
+        <option value="16">Board Games</option>
+        <option value="17">Science & Nature</option>
+        <option value="18">Computers</option>
+        <option value="19">Mathematics</option>
+        <option value="20">Mythology</option>
+        <option value="21">Sports</option>
+        <option value="22">Geography</option>
+        <option value="23">History</option>
+        <option value="24">Politics</option>
+        <option value="25">Art</option>
+        <option value="26">Celebrities</option>
+        <option value="27">Animals</option>
+        <option value="28">Vehicles</option>
+        <option value="29">Comics</option>
+        <option value="30">Gadgets</option>
+        <option value="32">Cartoons & Animations</option>
       </select>
 
       <button type="submit">Generate Questions</button>
