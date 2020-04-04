@@ -4,6 +4,9 @@ import './ScoresList.css';
 
 function ScoresList({ players }){
 
+  if(!players || players.length === 0) return null;
+  console.log(players);
+
   const gamePlayers = players.map(player => {
     return (
         <Score

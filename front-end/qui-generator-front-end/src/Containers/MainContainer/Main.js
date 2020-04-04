@@ -19,39 +19,42 @@ class Main extends Component{
         }],
         difficulty: "easy",
         genre: 11
+      }
+      this.handlePlayerAdd = this.handlePlayerAdd.bind(this);
+      this.handleGameAdd = this.handleGameAdd.bind(this);
+      this.handleAnswerClicked = this.handleAnswerClicked.bind(this);
     }
-    this.handlePlayerAdd = this.handlePlayerAdd.bind(this);
-    this.handleGameAdd = this.handleGameAdd.bind(this);
-    this.handleAnswerClicked = this.handleAnswerClicked.bind(this);
+
+    handlePlayerAdd(newPlayer) {
+      newPlayer.id = Date.now();
+      const updatedPlayers = [...this.state.players, newPlayer];
+      this.setState({ players: updatedPlayers });
+    }
+
+    handleGameAdd(difficulty, genre) {
+      this.setState({ difficulty: difficulty, genre: genre })
+    }
+
+    handleAnswerClicked(response) {
+      if (!response) return null;
+      console.log(this.state.players);
+      const players = this.state.players;
+      let player = players.filter(player => player.id === 1)[0];
+      player.points = player.points + 1;
+      players[0] = player;
+      this.setState({ players })
+    }
+
+    render() {
+      return (
+        <main className="main">
+        <GameBox handleGameAdd={this.handleGameAdd}/>
+        <p className="title-text">Hi, I'm the main container</p>
+        <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
+        <QuestionBox difficulty={this.state.difficulty} genre={this.state.genre} handleAnswerClicked={this.handleAnswerClicked}/>
+        </main>
+      )
+    }
   }
 
-  handlePlayerAdd(newPlayer) {
-    newPlayer.id = Date.now();
-    const updatedPlayers = [...this.state.players, newPlayer];
-    this.setState({ players: updatedPlayers });
-  }
-
-  handleGameAdd(difficulty, genre) {
-    this.setState({ difficulty: difficulty, genre: genre })
-  }
-
-  handleAnswerClicked(response) {
-    if (!response) return null;
-    const prevPlayerState = this.state.players;
-    prevPlayerState[0].points ++
-    this.setState({ players: [...prevPlayerState]})
-  }
-
-  render() {
-    return (
-      <main className="main">
-          <GameBox handleGameAdd={this.handleGameAdd}/>
-          <p className="title-text">Hi, I'm the main container</p>
-          <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
-          <QuestionBox difficulty={this.state.difficulty} genre={this.state.genre} handleAnswerClicked={this.handleAnswerClicked}/>
-      </main>
-    )
-  }
-}
-
-export default Main
+  export default Main
