@@ -49,7 +49,7 @@ class Main extends Component{
       return (
         <main className="main">
         <GameBox handleGameAdd={this.handleGameAdd}/>
-        <p className="title-text">Hi, I'm the main container</p>
+        <p className="title-text"></p>
         <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
         <QuestionBox difficulty={this.state.difficulty} genre={this.state.genre} handleAnswerClicked={this.handleAnswerClicked}/>
         </main>

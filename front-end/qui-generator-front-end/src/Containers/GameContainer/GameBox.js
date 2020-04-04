@@ -9,7 +9,6 @@ function GameBox({ handleGameAdd }) {
 
   return (
     <section className="game-box">
-      <h1>I'm the game container</h1>
       <GameForm handleGameSubmit={handleGameSubmit}/>
     </section>
   )

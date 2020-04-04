@@ -15,7 +15,7 @@
 
 .answer-revealed.right-answer {
   background-color: green;
-  transform: scale(2.3);
+  transform: scale(2.1);
   border-color: #ffc600;
   color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
@@ -23,5 +23,5 @@
 
 .answer-revealed.wrong-answer {
   background-color: grey;
-  transform: scale(0.1);
+  transform: scale(0.0);
 }

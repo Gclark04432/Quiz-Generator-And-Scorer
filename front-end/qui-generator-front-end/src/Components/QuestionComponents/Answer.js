@@ -57,10 +57,6 @@ function Answer({ currentQuestion, handleAnswerClicked }){
     return (
       <div>
       {randomAnswers}
-      <br/>
-      <div>
-      <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
-      </div>
       </div>
     )
 

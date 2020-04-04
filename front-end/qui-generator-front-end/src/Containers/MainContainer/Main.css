@@ -1,13 +1,12 @@
 .title-text {
   color: #EE6055;
-  background-color: black;
-      grid-column: 1/2;
-      grid-row: 1;
+  grid-column: 1/3;
+  grid-row: 1;
 }
 
 .main {
   display: grid;
-  grid-template-columns: 400px auto;
+  grid-template-columns: 400px auto 400px;
   grid-template-rows: 20% auto 10%;
   grid-gap: 20px;
 }
