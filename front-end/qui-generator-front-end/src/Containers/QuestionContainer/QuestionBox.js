@@ -21,7 +21,6 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, handleGameAdded }
   }
 
   const checkAnswerCorrect = (response) => {
-    handleNextQuestionClicked();
     handleAnswerClicked(response)
   }
 

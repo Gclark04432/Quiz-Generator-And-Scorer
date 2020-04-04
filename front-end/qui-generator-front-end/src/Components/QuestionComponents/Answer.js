@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Answer.css';
 
 function Answer({ currentQuestion, handleAnswerClicked }){
+  const [answersGiven, setAnswersGiven] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
   if(!currentQuestion) return null;
@@ -14,17 +15,23 @@ function Answer({ currentQuestion, handleAnswerClicked }){
 
   const handleAnswerSelected = (e) => {
     if (isCorrectAnswer(e.target.textContent)) {
-      setRevealed(true);
+      setAnswersGiven(answersGiven + 1);
       setTimeout(() => {
         setRevealed(false);
         handleAnswerClicked(true);
-      },3000)
+      },1000)
+      if (answersGiven === 7){
+        setRevealed(true);
+      }
     } else {
-      setRevealed(true);
+      setAnswersGiven(answersGiven + 1);
       setTimeout(() => {
         setRevealed(false);
         handleAnswerClicked(false);
-      },3000)
+      },1000)
+      if (answersGiven === 7){
+        setRevealed(true);
+      }
     }
   }
 
