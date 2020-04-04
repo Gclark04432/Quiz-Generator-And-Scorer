@@ -15,7 +15,7 @@ function QuestionBox({ genre, difficulty }) {
     .then(data => data.results)
     .then(questions => setQuestions(questions))
     .then(() => console.log(difficulty))
-  }, [])
+  }, [genre, difficulty])
 
   console.log(difficulty);
 
