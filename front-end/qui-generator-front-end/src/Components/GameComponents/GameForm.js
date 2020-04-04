@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-function GameForm() {
+function GameForm({ handleGameSubmit }) {
 
-  const [diffficulty, setDifficuly] = useState("");
+  const formSubmitted = (e) => {
+    e.preventDefault();
+    handleGameSubmit(e.target.elements[0].value, e.target.elements[1].value);
+  }
 
   return (
-    <form>
+    <form onSubmit={formSubmitted}>
 
       <select>
-        <option value="easy">Easy</option>
+        <option default value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
@@ -39,9 +42,9 @@ function GameForm() {
         <option value="cartoons">Cartoons & Animations</option>
       </select>
 
-      <button value="submit">Generate Questions</button>
+      <button type="submit">Generate Questions</button>
 
-    </form>
+    </form >
   )
 }
 

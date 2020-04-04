@@ -4,17 +4,20 @@ import Answer from '../../Components/QuestionComponents/Answer.js'
 
 import './QuestionBox.css';
 
-function QuestionBox() {
+function QuestionBox({ genre, difficulty }) {
 
   const [questions, setQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0)
 
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple")
+      fetch(`https://opentdb.com/api.php?amount=10&category=${genre}&difficulty=${difficulty}&type=multiple`)
     .then(res => res.json())
     .then(data => data.results)
     .then(questions => setQuestions(questions))
+    .then(() => console.log(difficulty))
   }, [])
+
+  console.log(difficulty);
 
   const handleNextQuestionClicked = () => {
     setQuestionIndex(questionIndex + 1);
