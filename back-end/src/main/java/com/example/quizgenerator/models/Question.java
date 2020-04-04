@@ -2,6 +2,7 @@ package com.example.quizgenerator.models;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,15 +16,19 @@ public class Question {
     @Column
     private String question;
 
-    @Column
-    private List<String> answers;
+    @Column(name="correct_answer")
+    private String correct_answer;
+
+    @Column(name="incorrect_answers")
+    private ArrayList<String> incorrect_answers;
 
     public Question(){
     }
 
-    public Question(String question, List<String> answers) {
+    public Question(String question, String correct_answer, ArrayList<String> incorrect_answers) {
         this.question = question;
-        this.answers = answers;
+        this.correct_answer = correct_answer;
+        this.incorrect_answers = incorrect_answers;
     }
 
     public Long getId() {
@@ -42,11 +47,19 @@ public class Question {
         this.question = question;
     }
 
-    public List<String> getAnswers() {
-        return answers;
+    public String getCorrectAnswer() {
+        return correct_answer;
     }
 
-    public void setAnswers(List<String> answers) {
-        this.answers = answers;
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correct_answer = correctAnswer;
+    }
+
+    public List<String> getIncorrectAnswers() {
+        return incorrect_answers;
+    }
+
+    public void setIncorrectAnswers(ArrayList<String> incorrectAnswers) {
+        this.incorrect_answers = incorrectAnswers;
     }
 }
