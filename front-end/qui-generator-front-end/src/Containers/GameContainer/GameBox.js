@@ -1,5 +1,6 @@
 import React from 'react';
 import GameForm from '../../Components/GameComponents/GameForm.js'
+import GameList from '../../Components/GameComponents/GameList.js'
 
 function GameBox({ handleGameAdd }) {
 
@@ -10,6 +11,7 @@ function GameBox({ handleGameAdd }) {
   return (
     <section className="game-box">
       <GameForm handleGameSubmit={handleGameSubmit}/>
+      <GameList/>
     </section>
   )
 }

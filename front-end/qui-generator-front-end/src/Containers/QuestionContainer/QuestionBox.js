@@ -4,7 +4,7 @@ import Answer from '../../Components/QuestionComponents/Answer.js'
 
 import './QuestionBox.css';
 
-function QuestionBox({ genre, difficulty, handleAnswerClicked }) {
+function QuestionBox({ genre, difficulty, handleAnswerClicked, handleGameAdded }) {
 
   const [questions, setQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0)
