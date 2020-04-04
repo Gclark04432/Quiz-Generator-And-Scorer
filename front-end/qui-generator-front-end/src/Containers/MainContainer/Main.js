@@ -68,7 +68,9 @@ class Main extends Component{
 
     handleAnswerClicked(response) {
       if (!response) {
-        this.setState({ currentPlayerId: this.state.currentPlayerId + 1 })
+        if (this.state.currentPlayerId < this.state.players.length){
+          this.setState({ currentPlayerId: this.state.currentPlayerId + 1 })
+        }
       }
       else {
         const players = this.state.players;
@@ -76,7 +78,9 @@ class Main extends Component{
         player.points = player.points + 1;
         players[this.state.currentPlayerId-1] = player;
         this.setState({ players })
-        this.setState({ currentPlayerId: this.state.currentPlayerId + 1 })
+        if (this.state.currentPlayerId < this.state.players.length){
+          this.setState({ currentPlayerId: this.state.currentPlayerId + 1 })
+        }
       }
     }
 
