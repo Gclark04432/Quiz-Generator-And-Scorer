@@ -14,19 +14,23 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked }) {
     .then(res => res.json())
     .then(data => data.results)
     .then(questions => setQuestions(questions))
-    .then(() => console.log(difficulty))
   }, [genre, difficulty])
-
-  console.log(difficulty);
 
   const handleNextQuestionClicked = () => {
     setQuestionIndex(questionIndex + 1);
   }
 
+  const checkAnswerCorrect = (response) => {
+    if (response){
+      handleNextQuestionClicked();
+    }
+    handleAnswerClicked(response)
+  }
+
   return (
     <section className="question-box">
       <Question currentQuestion={questions[questionIndex]}/>
-      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={handleAnswerClicked}/>
+      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={checkAnswerCorrect}/>
       <br/>
       <button onClick={handleNextQuestionClicked}>Next Question</button>
     </section>

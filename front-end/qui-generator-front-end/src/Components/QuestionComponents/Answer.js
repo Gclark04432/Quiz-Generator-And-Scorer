@@ -6,23 +6,23 @@ function Answer({ currentQuestion, handleAnswerClicked }){
 
   if(!currentQuestion) return null;
 
-  const handleAnswerSelected = (e) => {
-    return e.target.textContent === currentQuestion.correct_answer ?
-    handleAnswerClicked(true)
-    :  handleAnswerClicked(false);
-  }
-
   const isCorrectAnswer = (answer) => {
     return answer === currentQuestion.correct_answer ?
     true
     : false;
   }
 
-  const possibleAnswers = [];
-  possibleAnswers.push(currentQuestion.correct_answer);
-  for (let i = 0; i < currentQuestion.incorrect_answers.length; i++){
-    possibleAnswers.push(currentQuestion.incorrect_answers[i])
+  const handleAnswerSelected = (e) => {
+    return isCorrectAnswer(e.target.textContent) ?
+    handleAnswerClicked(true)
+    :  handleAnswerClicked(false);
   }
+
+  const possibleAnswers = [];
+    possibleAnswers.push(currentQuestion.correct_answer);
+    for (let i = 0; i < currentQuestion.incorrect_answers.length; i++){
+      possibleAnswers.push(currentQuestion.incorrect_answers[i])
+    }
 
 
   const shuffledAnswers = [];
@@ -48,11 +48,12 @@ function Answer({ currentQuestion, handleAnswerClicked }){
     <div>
     {randomAnswers}
     <br/>
-      <div>
-        <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
-      </div>
+    <div>
+    <button onClick={() => setRevealed(true)}>Reveal Answer!</button>
+    </div>
     </div>
   )
+
 }
 
 export default Answer;
