@@ -25,7 +25,7 @@ public class Question {
     private ArrayList<String> incorrect_answers;
 
     @JsonIgnoreProperties("questions")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Round.class)
     @JoinColumn(name="round_id", nullable=false)
     private Round round;
 
