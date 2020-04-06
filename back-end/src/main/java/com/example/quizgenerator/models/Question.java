@@ -26,6 +26,7 @@ public class Question {
 
     @JsonIgnoreProperties("questions")
     @ManyToOne
+    @JoinColumn(name="round_id", nullable=false)
     private Round round;
 
     public Question() {

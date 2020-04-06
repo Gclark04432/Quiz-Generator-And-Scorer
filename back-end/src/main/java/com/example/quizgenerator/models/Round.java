@@ -24,9 +24,8 @@ public class Round {
     public Round() {
     }
 
-    public Round(int roundNumber, List<Question> questions) {
+    public Round(int roundNumber) {
         this.roundNumber = roundNumber;
-        this.questions = questions;
     }
 
     public Long getId() {

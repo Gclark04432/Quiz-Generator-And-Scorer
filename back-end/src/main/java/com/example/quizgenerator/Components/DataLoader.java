@@ -28,7 +28,7 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws Exception {
 
-        Round round1 = new Round();
+        Round round1 = new Round(1);
         roundRepository.save(round1);
 
         ArrayList<String> wrongAnswers1 = new ArrayList();

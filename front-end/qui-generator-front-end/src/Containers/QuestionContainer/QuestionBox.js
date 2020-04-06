@@ -7,17 +7,51 @@ import './QuestionBox.css';
 function QuestionBox({ genre, difficulty, handleAnswerClicked }) {
 
   const [questions, setQuestions] = useState([]);
-  const [questionIndex, setQuestionIndex] = useState(0)
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [roundId, setRoundId] = useState(2);
 
   useEffect(() => {
     generateQuestions()
   }, [difficulty, genre])
 
-  const generateQuestions = () => {
-    fetch(`https://opentdb.com/api.php?amount=10&category=${genre}&difficulty=${difficulty}&type=multiple`)
+  const questionsToAdd = questions.map(question => {
+    return {
+      ...question,
+      round: `http://localhost:8080/rounds/${roundId}`
+    }
+  })
+
+  const generateRound = (roundNumber) => {
+    if (!questions || questions.length === 0) return null;
+    fetch("http://localhost:8080/rounds", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(roundNumber)
+    })
+    .then(() => console.log(questionsToAdd[0]))
+    .then(() => {
+      fetch("http://localhost:8080/questions", {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(questionsToAdd[0])
+      })
+    })
+  // .then(() => fetch("http://localhost:8080/questions/round", {
+  //   method: 'POST',
+  //   headers: { "Content-Type": "text/uri-list" },
+  //    body: `http://localhost:8080/questions/1/${roundId}`
+  // }))
+
+
+}
+
+const generateQuestions = () => {
+  fetch(`https://opentdb.com/api.php?amount=10&category=${genre}&difficulty=${difficulty}&type=multiple`)
     .then(res => res.json())
     .then(data => data.results)
     .then(questions => setQuestions(questions))
+    .then(() => generateRound(roundId))
+    .then(() => console.log(questions))
   }
 
   const customQuestions = () => {
@@ -42,9 +76,9 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked }) {
 
   return (
     <section className="question-box">
-      <button onClick={customQuestions}>Click here for questions about your local area & interests</button>
-      <Question currentQuestion={questions[questionIndex]}/>
-      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={checkAnswerCorrect} handleNextQuestionClicked={handleNextQuestionClicked}/>
+    <button onClick={customQuestions}>Click here for questions about your local area & interests</button>
+    <Question currentQuestion={questions[questionIndex]}/>
+    <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={checkAnswerCorrect} handleNextQuestionClicked={handleNextQuestionClicked}/>
     </section>
   )
 }
