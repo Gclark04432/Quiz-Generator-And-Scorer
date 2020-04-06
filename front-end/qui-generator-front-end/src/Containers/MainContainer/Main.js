@@ -3,6 +3,12 @@ import ScoreBox from '../ScoreContainer/ScoreBox.js'
 import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js'
 import QuestionBox from '../QuestionContainer/QuestionBox.js'
 import GameBox from '../GameContainer/GameBox.js'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import './Main.css'
 
@@ -71,6 +77,9 @@ class Main extends Component{
         if (this.state.currentPlayerId < this.state.players.length){
           this.setState({ currentPlayerId: this.state.currentPlayerId + 1 })
         }
+        else {
+          this.setState({ currentPlayerId: 1 })
+        }
       }
       else {
         const players = this.state.players;
@@ -80,6 +89,9 @@ class Main extends Component{
         this.setState({ players })
         if (this.state.currentPlayerId < this.state.players.length){
           this.setState({ currentPlayerId: this.state.currentPlayerId + 1 })
+        }
+        else {
+          this.setState({ currentPlayerId: 1 })
         }
       }
     }
@@ -92,17 +104,42 @@ class Main extends Component{
 
     render() {
       return (
+
+        <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/rounds">Rounds</Link>
+            </li>
+            <li>
+              <Link to="/questions">Questions</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/questions">
+          <div className="title-text">
+          {this.playerTurn()}
+          </div>
+          <QuestionBox
+          difficulty={this.state.difficulty}
+          genre={this.state.genre}
+          handleAnswerClicked={this.handleAnswerClicked}
+          handlePlayersAllPlayed={this.handlePlayersAllPlayed}/>
+          </Route>
+        </Switch>
+        </div>
         <main className="main">
         <GameBox handleGameAdd={this.handleGameAdd}/>
-        <div className="title-text">
-        {this.playerTurn()}
-        </div>
+
         <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
-        <QuestionBox
-        difficulty={this.state.difficulty}
-        genre={this.state.genre}
-        handleAnswerClicked={this.handleAnswerClicked}/>
+
         </main>
+        </Router>
       )
     }
   }

@@ -1,5 +1,5 @@
 .question-box {
-  width: 500px;
+  width: 800px;
   justify-content: center;
   text-align: center;
   border: solid 2px purple;
@@ -7,4 +7,6 @@
   grid-column: 2;
   grid-row: 2/4;
   word-wrap: normal;
+  background-color:lightgoldenrodyellow;
+  font-size: 28px;
 }

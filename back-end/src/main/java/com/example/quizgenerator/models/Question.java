@@ -1,5 +1,7 @@
 package com.example.quizgenerator.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,19 +18,24 @@ public class Question {
     @Column
     private String question;
 
-    @Column(name="correct_answer")
+    @Column(name = "correct_answer")
     private String correct_answer;
 
-    @Column(name="incorrect_answers")
+    @Column(name = "incorrect_answers")
     private ArrayList<String> incorrect_answers;
 
-    public Question(){
+    @JsonIgnoreProperties("questions")
+    @ManyToOne
+    private Round round;
+
+    public Question() {
     }
 
-    public Question(String question, String correct_answer, ArrayList<String> incorrect_answers) {
+    public Question(String question, String correct_answer, ArrayList<String> incorrect_answers, Round round) {
         this.question = question;
         this.correct_answer = correct_answer;
         this.incorrect_answers = incorrect_answers;
+        this.round = round;
     }
 
     public Long getId() {
@@ -47,19 +54,29 @@ public class Question {
         this.question = question;
     }
 
-    public String getCorrectAnswer() {
+    public String getCorrect_answer() {
         return correct_answer;
     }
 
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correct_answer = correctAnswer;
+    public void setCorrect_answer(String correct_answer) {
+        this.correct_answer = correct_answer;
     }
 
-    public List<String> getIncorrectAnswers() {
+    public ArrayList<String> getIncorrect_answers() {
         return incorrect_answers;
     }
 
-    public void setIncorrectAnswers(ArrayList<String> incorrectAnswers) {
-        this.incorrect_answers = incorrectAnswers;
+    public void setIncorrect_answers(ArrayList<String> incorrect_answers) {
+        this.incorrect_answers = incorrect_answers;
+    }
+
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
     }
 }
+
+
