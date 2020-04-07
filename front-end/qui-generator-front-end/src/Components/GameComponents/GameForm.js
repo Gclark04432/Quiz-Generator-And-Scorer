@@ -10,7 +10,7 @@ function GameForm({ handleGameSubmit }) {
 
   const formSubmitted = (e) => {
     e.preventDefault();
-    handleGameSubmit(e.target.elements[0].value, e.target.elements[1].value);
+    handleGameSubmit(e.target.elements[3].value, e.target.elements[4].value);
   }
 
   const handleSliderUpdate = (value) => {
@@ -83,6 +83,8 @@ function GameForm({ handleGameSubmit }) {
           <option value="30">Gadgets</option>
           <option value="32">Cartoons & Animations</option>
         </select>
+
+        <br/>
 
         <button type="submit">Generate Questions</button>
 

@@ -3,6 +3,7 @@ import ScoreBox from '../ScoreContainer/ScoreBox.js';
 import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js';
 import QuestionBox from '../QuestionContainer/QuestionBox.js';
 import GameBox from '../GameContainer/GameBox.js';
+import GameList from '../../Components/GameComponents/GameList.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -149,6 +150,12 @@ class Main extends Component{
                 questions={this.state.questions}
               />
               <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
+            </Route>
+
+            <Route exact path="/rounds">
+            <div className="rounds">
+            <GameList/>
+            </div>
             </Route>
           </Switch>
           </div>
