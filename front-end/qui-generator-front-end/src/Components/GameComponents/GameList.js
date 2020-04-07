@@ -2,13 +2,16 @@ import React, {useState, useEffect} from 'react';
 import Round from './Round.js'
 import './GameList.css';
 
-function GameList({rounds, getRoundQuestions, gameRounds}) {
-  const [roundNumber, setRoundNumber] = useState(1);
+function GameList({getRoundQuestions, gameRounds}) {
 
-  const roundsToRender = gameRounds.map(gameRound => {
+  const [roundNumber, setRoundNumber] = useState();
+
+  const roundsToRender = gameRounds.map((gameRound, id) => {
+      for (let i = 1; i <= gameRounds.length; i++){
       return(
-        <Round key={roundNumber} questions={gameRound[0]} roundNumber={roundNumber} getRoundQuestions={getRoundQuestions}/>
+        <Round key={id} questions={gameRound[i]} roundNumber={id+1} getRoundQuestions={getRoundQuestions}/>
       )
+    }
     })
 
     return (

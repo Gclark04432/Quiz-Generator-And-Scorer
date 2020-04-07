@@ -167,7 +167,6 @@ class Main extends Component{
 
             <Route exact path="/rounds">
             <GameList
-              rounds={this.state.gameRounds.length}
               getRoundQuestions={this.getQuestionsForRound}
               questions={this.state.questions}
               gameRounds={this.state.gameRounds}
