@@ -2,22 +2,21 @@ import React, {useState, useEffect} from 'react';
 import Round from './Round.js'
 import './GameList.css';
 
-function GameList({rounds, getRoundQuestions, questions}) {
-
+function GameList({rounds, getRoundQuestions, gameRounds}) {
   const [roundNumber, setRoundNumber] = useState(1);
 
-  const roundsToRender = questions.map(question => {
+  const roundsToRender = gameRounds.map(gameRound => {
       return(
-      <div onClick={() => getRoundQuestions(roundNumber)}>
-        <Round/>
-      </div>)
+        <Round key={roundNumber} questions={gameRound[0]} roundNumber={roundNumber} getRoundQuestions={getRoundQuestions}/>
+      )
     })
 
-  return (
-    <section className="games-list">
-        <Round questions={questions} roundNumber={roundNumber} getRoundQuestions={getRoundQuestions}/>
-    </section>
-  )
+    return (
+      <section className="games-list" onClick={() => getRoundQuestions(roundNumber)}>
+        {roundsToRender}
+      </section>
+    )
+
 }
 
 export default GameList;

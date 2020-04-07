@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ScoreBox from '../ScoreContainer/ScoreBox.js';
-import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js';
 import QuestionBox from '../QuestionContainer/QuestionBox.js';
 import GameBox from '../GameContainer/GameBox.js';
 import GameList from '../../Components/GameComponents/GameList.js';
@@ -24,9 +23,9 @@ class Main extends Component{
           name: "Dawn",
           points: 0
         }],
+        gameRounds: [],
         currentRoundId: 1,
         questions: [],
-        numberOfRounds: 2,
         difficulty: "easy",
         genre: 11,
         currentPlayerId: 1
@@ -63,6 +62,9 @@ class Main extends Component{
             body: JSON.stringify(question)
           })
         })
+      })
+      .then(() => {
+        this.setState({gameRounds: [...this.state.gameRounds, this.state.questions]})
       })
       .then(() => {
         this.setState({currentRoundId: this.state.currentRoundId + 1})
@@ -165,9 +167,11 @@ class Main extends Component{
 
             <Route exact path="/rounds">
             <GameList
-              rounds={this.state.numberOfRounds}
+              rounds={this.state.gameRounds.length}
               getRoundQuestions={this.getQuestionsForRound}
-              questions={this.state.questions}/>
+              questions={this.state.questions}
+              gameRounds={this.state.gameRounds}
+              />
             </Route>
           </Switch>
           </main>
