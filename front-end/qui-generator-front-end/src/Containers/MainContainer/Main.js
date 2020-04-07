@@ -26,7 +26,7 @@ class Main extends Component{
         }],
         currentRoundId: 1,
         questions: [],
-        games: [],
+        numberOfRounds: 0,
         difficulty: "easy",
         genre: 11,
         currentPlayerId: 1
@@ -62,6 +62,9 @@ class Main extends Component{
             body: JSON.stringify(question)
           })
         })
+      })
+      .then(() => {
+        this.setState({currentRoundId: this.state.currentRoundId + 1})
       })
     }
 
@@ -119,7 +122,7 @@ class Main extends Component{
         return (
 
           <Router>
-          <div>
+          <main className="main">
           <nav>
           <ul>
           <li>
@@ -153,12 +156,10 @@ class Main extends Component{
             </Route>
 
             <Route exact path="/rounds">
-            <div className="rounds">
             <GameList/>
-            </div>
             </Route>
           </Switch>
-          </div>
+          </main>
           </Router>
         )
       }

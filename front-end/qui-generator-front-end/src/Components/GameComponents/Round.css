@@ -1,0 +1,14 @@
+.round {
+  border: solid 5px #7FEFBD;
+  margin: 5px;
+  padding: 5px;
+  background-color: lightgoldenrodyellow;
+  width:40%;
+  height: 250px;
+  text-align: center;
+  border-radius: 25px;
+  background: url('./round-background-3.jpg');
+  background-repeat: no-repeat;
+  background-clip: content-box;
+  background-size: cover;
+}

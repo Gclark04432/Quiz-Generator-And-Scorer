@@ -11,7 +11,6 @@ function GameBox({ handleGameAdd }) {
   return (
     <section className="game-box">
       <GameForm handleGameSubmit={handleGameSubmit}/>
-      <GameList/>
     </section>
   )
 }
