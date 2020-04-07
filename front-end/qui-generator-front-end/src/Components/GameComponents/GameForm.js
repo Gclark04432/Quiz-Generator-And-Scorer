@@ -1,16 +1,56 @@
-import React from 'react';
+import React, {useState} from 'react';
+import InputRange from 'react-input-range';
+
 import './GameForm.css';
+import 'react-input-range/lib/css/index.css'
 
 function GameForm({ handleGameSubmit }) {
+
+  const [sliderValue, setSliderValue] = useState(2);
 
   const formSubmitted = (e) => {
     e.preventDefault();
     handleGameSubmit(e.target.elements[0].value, e.target.elements[1].value);
   }
 
+  const handleSliderUpdate = (value) => {
+    setSliderValue(value);
+  }
+
   return (
     <section className="game-form">
       <form onSubmit={formSubmitted}>
+
+
+      <InputRange
+        step={1}
+        formatLabel={value => `${sliderValue} rounds`}
+        maxValue={6}
+        minValue={1}
+        value={sliderValue}
+        onChange={handleSliderUpdate}
+        />
+
+      <div className="radio">
+        <label>
+          <input type="radio" value="easy" />
+          Easy
+        </label>
+      </div>
+
+      <div className="radio">
+        <label>
+          <input type="radio" value="medium" />
+          Medium
+        </label>
+      </div>
+
+      <div className="radio">
+        <label>
+          <input type="radio" value="hard" />
+          Hard
+        </label>
+      </div>
 
         <select>
           <option default value="easy">Easy</option>

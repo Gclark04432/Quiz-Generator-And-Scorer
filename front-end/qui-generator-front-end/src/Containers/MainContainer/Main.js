@@ -122,7 +122,7 @@ class Main extends Component{
           <nav>
           <ul>
           <li>
-          <Link to="/">Home</Link>
+          <Link to="/">New Game</Link>
           </li>
           <li>
           <Link to="/rounds">Rounds</Link>
@@ -133,26 +133,25 @@ class Main extends Component{
           </ul>
           </nav>
           <Switch>
-          <Route path="/questions">
-          <div className="title-text">
-          {this.playerTurn()}
-          </div>
-          <QuestionBox
-          difficulty={this.state.difficulty}
-          genre={this.state.genre}
-          handleAnswerClicked={this.handleAnswerClicked}
-          handlePlayersAllPlayed={this.handlePlayersAllPlayed}
-          questions={this.state.questions}
-          />
-          </Route>
+            <Route exact path="/">
+              <GameBox handleGameAdd={this.handleGameAdd}/>
+            </Route>
+
+            <Route exact path="/questions">
+              <div className="title-text">
+                {this.playerTurn()}
+              </div>
+              <QuestionBox
+                difficulty={this.state.difficulty}
+                genre={this.state.genre}
+                handleAnswerClicked={this.handleAnswerClicked}
+                handlePlayersAllPlayed={this.handlePlayersAllPlayed}
+                questions={this.state.questions}
+              />
+              <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
+            </Route>
           </Switch>
           </div>
-          <main className="main">
-          <GameBox handleGameAdd={this.handleGameAdd}/>
-
-          <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
-
-          </main>
           </Router>
         )
       }
