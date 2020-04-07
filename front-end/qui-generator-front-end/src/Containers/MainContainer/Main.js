@@ -26,7 +26,7 @@ class Main extends Component{
         }],
         currentRoundId: 1,
         questions: [],
-        numberOfRounds: 0,
+        numberOfRounds: 2,
         difficulty: "easy",
         genre: 11,
         currentPlayerId: 1
@@ -35,6 +35,7 @@ class Main extends Component{
       this.handleGameAdd = this.handleGameAdd.bind(this);
       this.handleAnswerClicked = this.handleAnswerClicked.bind(this);
       this.playerTurn = this.playerTurn.bind(this);
+      this.getQuestionsForRound = this.getQuestionsForRound.bind(this);
     }
 
     questionsToAdd(){
@@ -87,6 +88,13 @@ class Main extends Component{
           this.generateQuestions();
         })
       }
+
+      getQuestionsForRound(num){
+        fetch(`http://localhost:8080/rounds/${num}/questions`)
+          .then(res => res.json())
+          .then(data => this.setState({questions: data._embedded.questions}))
+      }
+
 
       handleAnswerClicked(response) {
         if (!response) {
@@ -156,7 +164,10 @@ class Main extends Component{
             </Route>
 
             <Route exact path="/rounds">
-            <GameList/>
+            <GameList
+              rounds={this.state.numberOfRounds}
+              getRoundQuestions={this.getQuestionsForRound}
+              questions={this.state.questions}/>
             </Route>
           </Switch>
           </main>
