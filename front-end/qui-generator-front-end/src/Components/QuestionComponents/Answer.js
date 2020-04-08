@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Answer.css';
 
-function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestionClicked }){
+function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, playerCount }){
   const [answersGiven, setAnswersGiven] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
@@ -20,8 +20,8 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestionClicke
       setAnswersGiven(answersGiven + 1);
       setTimeout(() => {
         setRevealed(false);
-      },10000)
-      if (answersGiven === 7){
+      },3000)
+      if (answersGiven === playerCount){
         setRevealed(true);
         answersAllGiven = true;
         setAnswersGiven(0);
@@ -31,8 +31,8 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestionClicke
       setAnswersGiven(answersGiven + 1);
       setTimeout(() => {
         setRevealed(false);
-      },10000)
-      if (answersGiven === 7){
+      },3000)
+      if (answersGiven === playerCount){
         setRevealed(true);
         answersAllGiven = true;
         setAnswersGiven(0);
@@ -78,7 +78,7 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestionClicke
 
     const nextQuestionClicked = () => {
       setRevealed(false);
-      handleNextQuestionClicked();
+      handleNextQuestion();
     }
 
     return (

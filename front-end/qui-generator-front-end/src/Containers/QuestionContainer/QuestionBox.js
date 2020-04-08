@@ -4,12 +4,12 @@ import Answer from '../../Components/QuestionComponents/Answer.js'
 
 import './QuestionBox.css';
 
-function QuestionBox({ genre, difficulty, handleAnswerClicked, questions }) {
+function QuestionBox({ genre, difficulty, handleAnswerClicked, questions, playerCount }) {
   const [questionIndex, setQuestionIndex] = useState(0);
 
   if (!questions || questions.length === 0) return null;
 
-  const handleNextQuestionClicked = () => {
+  const handleNextQuestion = () => {
     setQuestionIndex(questionIndex + 1);
   }
 
@@ -17,7 +17,7 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, questions }) {
     handleAnswerClicked(response)
     if (answersAllGiven) {
       setTimeout(() => {
-        handleNextQuestionClicked();
+        handleNextQuestion();
       }, 3000);
     }
   }
@@ -25,7 +25,7 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, questions }) {
     return (
       <section className="question-box">
       <Question currentQuestion={questions[questionIndex]}/>
-      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={checkAnswerCorrect} handleNextQuestionClicked={handleNextQuestionClicked}/>
+      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={checkAnswerCorrect} handleNextQuestion={handleNextQuestion} playerCount={playerCount}/>
       </section>
     )
   }
