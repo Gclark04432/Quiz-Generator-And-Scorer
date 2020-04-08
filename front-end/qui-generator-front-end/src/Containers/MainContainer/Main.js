@@ -17,12 +17,7 @@ class Main extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      players:[
-        {
-          id: 1,
-          name: "Dawn",
-          points: 0
-        }],
+        players:[],
         gameRounds: [],
         currentRoundId: 1,
         questions: [],
@@ -124,6 +119,7 @@ class Main extends Component{
       }
 
       playerTurn() {
+        if (this.state.players.length === 0) return null;
         return (
           <h1>{this.state.players[this.state.currentPlayerId-1].name} it's your turn next!</h1>
         )
@@ -149,7 +145,7 @@ class Main extends Component{
           </nav>
           <Switch>
             <Route exact path="/">
-              <GameBox handleGameAdd={this.handleGameAdd}/>
+              <GameBox handleGameAdd={this.handleGameAdd} handlePlayerAdd={this.handlePlayerAdd}/>
             </Route>
 
             <Route exact path="/questions">
@@ -163,7 +159,7 @@ class Main extends Component{
                 handlePlayersAllPlayed={this.handlePlayersAllPlayed}
                 questions={this.state.questions}
               />
-              <ScoreBox players={this.state.players} handlePlayerAdd={this.handlePlayerAdd}/>
+              <ScoreBox players={this.state.players}/>
             </Route>
 
             <Route exact path="/rounds">
