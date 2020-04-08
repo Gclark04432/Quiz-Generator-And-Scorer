@@ -1,1 +1,42 @@
+.player-form  input[type="text"]{
+  width: 100%;
+  font-size: 20px;
+  background-color: #A23E48;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 4px;
+  color: white;
+}
 
+.player-form input[type="text"]:focus {
+  background-color: lightblue;
+}
+
+input[type=button], input[type=submit]{
+  background-color: #F7567C;
+  border: solid 2px white;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.player-add-success {
+  padding: 20px;
+  background-color: lightgreen;
+  color: black;
+  margin-bottom: 15px;
+  width: 25%;
+  border-radius: 30px;
+  font-size: 16px;
+  border: solid 2px white;
+}
+
+.hidden {
+  opacity: 1;
+  transition: opacity 3s;
+}

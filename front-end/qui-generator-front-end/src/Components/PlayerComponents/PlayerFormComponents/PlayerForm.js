@@ -13,8 +13,22 @@ class PlayerForm extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  handlePlayerChange(event) {
+    this.setState({ name: event.target.value })
+  }
+
+  handleFormSubmit(event) {
+    event.preventDefault();
+    const newPlayer = {
+      name: this.state.name,
+      points: 0
+    }
+    this.props.handlePlayerAdd(newPlayer);
+  }
+
   render(){
     return (
+      <article>
       <form className="player-form">
 
         <input
@@ -31,20 +45,12 @@ class PlayerForm extends Component {
         />
 
       </form>
+
+      <div className="player-add-success hidden">
+      Player successfully added
+    </div>
+    </article>
     )
-  }
-
-  handlePlayerChange(event) {
-    this.setState({ name: event.target.value })
-  }
-
-  handleFormSubmit(event) {
-    event.preventDefault();
-    const newPlayer = {
-      name: this.state.name,
-      points: 0
-    }
-    this.props.handlePlayerAdd(newPlayer);
   }
 
 }

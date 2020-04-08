@@ -2,6 +2,8 @@ import React from 'react';
 import GameForm from '../../Components/GameComponents/GameForm.js'
 import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js'
 
+import './GameBox.css';
+
 function GameBox({ handleGameAdd, handlePlayerAdd }) {
 
   const handleGameSubmit = (difficulty, genre) => {
@@ -11,6 +13,7 @@ function GameBox({ handleGameAdd, handlePlayerAdd }) {
   return (
     <section className="game-box">
       <PlayerForm handlePlayerAdd={handlePlayerAdd}/>
+      <br/> <br/>
       <GameForm handleGameSubmit={handleGameSubmit}/>
     </section>
   )

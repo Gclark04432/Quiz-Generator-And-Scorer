@@ -1,4 +1,8 @@
 .game-box {
-        grid-column: 2;
-        grid-row: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 70%;
+  padding: 30px;
+  margin: 20px;
 }
