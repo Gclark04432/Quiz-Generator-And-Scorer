@@ -92,6 +92,7 @@ class Main extends Component{
       }
 
       getQuestionsForRound(num){
+        if (!num) return null;
         fetch(`http://localhost:8080/rounds/${num}/questions`)
           .then(res => res.json())
           .then(data => this.setState({questions: data._embedded.questions}))

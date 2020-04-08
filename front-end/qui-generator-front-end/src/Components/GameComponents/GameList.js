@@ -11,6 +11,7 @@ function GameList({getRoundQuestions, gameRounds}) {
       return(
         <Round key={id} questions={gameRound[i]} roundNumber={id+1} getRoundQuestions={getRoundQuestions}/>
       )
+      setRoundNumber(id+1)
     }
     })
 
