@@ -1,9 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Answer.css';
 
 function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, playerCount }){
   const [answersGiven, setAnswersGiven] = useState(0);
   const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    if (answersGiven === playerCount){
+      setRevealed(true);
+      answersAllGiven = true;
+      setAnswersGiven(0);
+    }
+  }, [answersGiven])
 
   if(!currentQuestion) return null;
 
@@ -21,22 +29,12 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
       setTimeout(() => {
         setRevealed(false);
       },3000)
-      if (answersGiven === playerCount){
-        setRevealed(true);
-        answersAllGiven = true;
-        setAnswersGiven(0);
-      }
       handleAnswerClicked(true, answersAllGiven);
     } else {
       setAnswersGiven(answersGiven + 1);
       setTimeout(() => {
         setRevealed(false);
       },3000)
-      if (answersGiven === playerCount){
-        setRevealed(true);
-        answersAllGiven = true;
-        setAnswersGiven(0);
-      }
       handleAnswerClicked(false, answersAllGiven);
     }
   }
