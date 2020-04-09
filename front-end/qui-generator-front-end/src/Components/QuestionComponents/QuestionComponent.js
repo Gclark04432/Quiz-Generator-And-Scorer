@@ -1,4 +1,5 @@
 import React from 'react'
+import './QuestionComponent.css';
 
 function Question({ currentQuestion }) {
 
@@ -14,7 +15,7 @@ function Question({ currentQuestion }) {
 
 
   return (
-    <section>
+    <section className="question">
       <h3>{changedQuestion}</h3>
     </section>
   )

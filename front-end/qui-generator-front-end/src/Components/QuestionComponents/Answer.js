@@ -68,7 +68,7 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
     }
 
     return (
-      <div>
+      <div className="possible-answers">
       {randomAnswers}
       <button onClick={() => setRevealed(true)}>Reveal Answer</button>
       <button onClick={nextQuestionClicked}>Next Question</button>

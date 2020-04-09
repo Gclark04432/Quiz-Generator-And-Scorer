@@ -1,3 +1,4 @@
+
 .answer {
   text-align: center;
   font-size: 1.4rem;
@@ -7,6 +8,7 @@
   background-color: blue;
   border-radius: 25px;
   color: #54C6EB;
+  width: 60%
 }
 
 .answer:hover {
@@ -25,4 +27,8 @@
 .answer-revealed.wrong-answer {
   background-color: grey;
   transform: scale(0.0);
+}
+
+.possible-answers {
+  justify-content: center;
 }

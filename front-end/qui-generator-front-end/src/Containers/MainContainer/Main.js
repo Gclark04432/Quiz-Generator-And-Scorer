@@ -174,6 +174,8 @@ class Main extends Component{
           getRoundQuestions={this.getQuestionsForRound}
           questions={this.state.questions}
           gameRounds={this.state.gameRounds}
+          genre={this.state.genre}
+          difficulty={this.state.difficulty}
           />
           </Route>
           </Switch>
