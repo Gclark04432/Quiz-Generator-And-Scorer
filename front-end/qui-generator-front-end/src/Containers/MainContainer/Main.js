@@ -3,6 +3,7 @@ import ScoreBox from '../ScoreContainer/ScoreBox.js';
 import QuestionBox from '../QuestionContainer/QuestionBox.js';
 import GameBox from '../GameContainer/GameBox.js';
 import GameList from '../../Components/GameComponents/GameList.js';
+import Homepage from '../../Components/HomePageComponents/HomePage.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -132,7 +133,10 @@ class Main extends Component{
           <nav>
           <ul>
           <li>
-          <Link to="/">New Game</Link>
+          <Link to="/">Home Page</Link>
+          </li>
+          <li>
+          <Link to="/new-game">New Game</Link>
           </li>
           <li>
           <Link to="/rounds">Rounds</Link>
@@ -144,6 +148,10 @@ class Main extends Component{
           </nav>
           <Switch>
           <Route exact path="/">
+            <Homepage/>
+          </Route>
+
+          <Route exact path="/new-game">
           <GameBox handleGameAdd={this.handleGameAdd} handlePlayerAdd={this.handlePlayerAdd}/>
           </Route>
 

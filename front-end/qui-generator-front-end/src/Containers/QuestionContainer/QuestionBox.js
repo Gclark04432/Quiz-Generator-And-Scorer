@@ -16,9 +16,7 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, questions, player
   const checkAnswerCorrect = (response, answersAllGiven) => {
     handleAnswerClicked(response)
     if (answersAllGiven) {
-      setTimeout(() => {
         handleNextQuestion();
-      }, 3000);
     }
   }
 

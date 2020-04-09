@@ -24,19 +24,7 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
   let answersAllGiven = false;
 
   const handleAnswerSelected = (e) => {
-    if (isCorrectAnswer(e.target.textContent)) {
       setAnswersGiven(answersGiven + 1);
-      setTimeout(() => {
-        setRevealed(false);
-      },3000)
-      handleAnswerClicked(true, answersAllGiven);
-    } else {
-      setAnswersGiven(answersGiven + 1);
-      setTimeout(() => {
-        setRevealed(false);
-      },3000)
-      handleAnswerClicked(false, answersAllGiven);
-    }
   }
 
     const possibleAnswers = [];

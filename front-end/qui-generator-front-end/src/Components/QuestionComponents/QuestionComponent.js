@@ -9,7 +9,9 @@ function Question({ currentQuestion }) {
   }
   changedQuestion = changedQuestion.replace(/&quot;/g, '"');
   changedQuestion = changedQuestion.replace(/&amp;/g, '&');
-  changedQuestion = changedQuestion.replace(/&eacute;/g, '&#201');
+  changedQuestion = changedQuestion.replace(/&eacute;/g, 'é');
+  changedQuestion = changedQuestion.replace(/&aacute;;/g, 'á');
+
 
   return (
     <section>
