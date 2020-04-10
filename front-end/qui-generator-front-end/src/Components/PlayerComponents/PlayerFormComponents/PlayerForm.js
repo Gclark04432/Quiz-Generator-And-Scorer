@@ -34,8 +34,8 @@ class PlayerForm extends Component {
 
   render(){
     return (
-      <article>
-      <form className="player-form">
+      <article  className="player-form">
+      <form>
 
         <input
           type="text"

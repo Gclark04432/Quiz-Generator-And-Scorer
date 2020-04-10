@@ -1,6 +1,9 @@
 .player-form {
   grid-column: 1/2;
   grid-row: 1/2;
+  padding: 10px;
+  margin: 20px;
+  height: 100%;
 }
 
 .player-form  input[type="text"]{

@@ -1,5 +1,5 @@
 .homepage {
-  color: yellow;
+  color: gold;
   height: 80%;
   width: 100%;
   text-align: center;
@@ -7,9 +7,9 @@
 }
 
 .category-example {
-  background-color: #F7567C;
-  border: solid 2px white;
-  color: white;
+  background-color: lightseagreen;
+  border: solid 2px gold;
+  color: gold;
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;

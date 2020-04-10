@@ -2,10 +2,19 @@ import React from 'react'
 
 import './PlayerList.css'
 
-function PlayerList() {
+function PlayerList({players}) {
+
+  const addedPlayers = players.map(player => {
+    return (
+      <li key={player.id} className="player-in-game">{player.name}</li>
+    )
+  })
+
   return (
     <article className="player-list">
-      <h1> I'm the playerlist</h1>
+      <ul>
+        {addedPlayers}
+      </ul>
     </article>
   )
 }

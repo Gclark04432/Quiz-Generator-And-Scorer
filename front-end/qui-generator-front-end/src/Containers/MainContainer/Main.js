@@ -130,55 +130,53 @@ class Main extends Component{
 
           <Router>
           <main className="main">
-          <nav>
-          <ul>
-          <li>
-          <Link to="/">Home Page</Link>
-          </li>
-          <li>
-          <Link to="/new-game">New Game</Link>
-          </li>
-          <li>
-          <Link to="/rounds">Rounds</Link>
-          </li>
-          <li>
-          <Link to="/questions">Questions</Link>
-          </li>
-          </ul>
-          </nav>
-          <Switch>
-          <Route exact path="/">
-            <Homepage/>
-          </Route>
+            <nav>
+            <ul>
+            <li>
+            <Link to="/">Home Page</Link>
+            </li>
+            <li>
+            <Link to="/rounds">Rounds</Link>
+            </li>
+            </ul>
+            </nav>
+            <Switch>
+            <Route exact path="/">
+              <Homepage/>
+            </Route>
 
-          <Route exact path="/new-game">
-          <GameBox handleGameAdd={this.handleGameAdd} handlePlayerAdd={this.handlePlayerAdd}/>
-          </Route>
+            <Route exact path="/new-game">
+            <GameBox
+              handleGameAdd={this.handleGameAdd}
+              handlePlayerAdd={this.handlePlayerAdd}
+              players={this.state.players}
+            />
+            </Route>
 
-          <Route exact path="/questions">
-          <div className="title-text">
-          {this.playerTurn()}
-          </div>
-          <QuestionBox
-          difficulty={this.state.difficulty}
-          genre={this.state.genre}
-          handleAnswerClicked={this.handleAnswerClicked}
-          questions={this.state.questions}
-          playerCount={this.state.playerCount}
-          />
-          <ScoreBox players={this.state.players}/>
-          </Route>
+            <Route exact path="/questions">
+              <div className="title-text">
+              {this.playerTurn()}
+              </div>
+              <QuestionBox
+                difficulty={this.state.difficulty}
+                genre={this.state.genre}
+                handleAnswerClicked={this.handleAnswerClicked}
+                questions={this.state.questions}
+                playerCount={this.state.playerCount}
+            />
+              <ScoreBox players={this.state.players}/>
+            </Route>
 
-          <Route exact path="/rounds">
-          <GameList
-          getRoundQuestions={this.getQuestionsForRound}
-          questions={this.state.questions}
-          gameRounds={this.state.gameRounds}
-          genre={this.state.genre}
-          difficulty={this.state.difficulty}
-          />
-          </Route>
-          </Switch>
+            <Route exact path="/rounds">
+              <GameList
+              getRoundQuestions={this.getQuestionsForRound}
+              questions={this.state.questions}
+              gameRounds={this.state.gameRounds}
+              genre={this.state.genre}
+              difficulty={this.state.difficulty}
+            />
+            </Route>
+            </Switch>
           </main>
           </Router>
         )

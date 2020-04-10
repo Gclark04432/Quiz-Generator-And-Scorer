@@ -1,4 +1,7 @@
-.player-list {
-  grid-column: 2/3;
-  grid-row: 1/2;
+.player-in-game {
+  border-radius: 20px;
+  color: #820933;
+  padding: 0;
+  margin: 5px;
+  text-align: center;
 }
