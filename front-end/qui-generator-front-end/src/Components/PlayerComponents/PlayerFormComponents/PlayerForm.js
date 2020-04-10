@@ -7,7 +7,8 @@ class PlayerForm extends Component {
     super(props);
     this.state = {
       name: "",
-      points: 0
+      points: 0,
+      addSuccessful: false
     }
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -19,11 +20,16 @@ class PlayerForm extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
+    this.setState({addSuccessful: true})
     const newPlayer = {
       name: this.state.name,
       points: 0
     }
     this.props.handlePlayerAdd(newPlayer);
+    setTimeout(() => {
+      this.setState({name: ""})
+      this.setState({addSuccessful: false})
+    },2000)
   }
 
   render(){
@@ -46,7 +52,7 @@ class PlayerForm extends Component {
 
       </form>
 
-      <div className="player-add-success hidden">
+      <div className={"player-add-success-" + this.state.addSuccessful}>
       Player successfully added
     </div>
     </article>

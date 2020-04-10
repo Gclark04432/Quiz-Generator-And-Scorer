@@ -22,7 +22,7 @@ function HomePage() {
 
       <br/><br/><br/>
 
-      <button className="new-game-button"><Link to="/new-game">Start New Game</Link></button>
+      <button className="new-game-button"><Link to="/new-game">New Game</Link></button>
 
     </article>
   )
