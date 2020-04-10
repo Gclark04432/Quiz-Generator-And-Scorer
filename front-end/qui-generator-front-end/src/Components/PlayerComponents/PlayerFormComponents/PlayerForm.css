@@ -1,3 +1,8 @@
+.player-form {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
 .player-form  input[type="text"]{
   min-width: 200px;
   width: 30%;

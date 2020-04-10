@@ -1,6 +1,7 @@
 import React from 'react';
 import GameForm from '../../Components/GameComponents/GameForm.js'
 import PlayerForm from '../../Components/PlayerComponents/PlayerFormComponents/PlayerForm.js'
+import PlayerList from '../../Components/PlayerComponents/PlayerListComponents/PlayerList.js'
 
 import './GameBox.css';
 
@@ -13,6 +14,7 @@ function GameBox({ handleGameAdd, handlePlayerAdd }) {
   return (
     <section className="game-box">
       <PlayerForm handlePlayerAdd={handlePlayerAdd}/>
+      <PlayerList/>
       <br/> <br/>
       <GameForm handleGameSubmit={handleGameSubmit}/>
     </section>
