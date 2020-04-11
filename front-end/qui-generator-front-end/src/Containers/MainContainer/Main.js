@@ -164,7 +164,6 @@ class Main extends Component{
                 questions={this.state.questions}
                 playerCount={this.state.playerCount}
             />
-              <ScoreBox players={this.state.players}/>
             </Route>
 
             <Route exact path="/rounds">

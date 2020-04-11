@@ -35,7 +35,14 @@ class PlayerForm extends Component {
   render(){
     return (
       <article  className="player-form">
-      <form>
+
+      <div className="add-player-text">
+        <h2>
+          Please Add Player(s) Below
+        </h2>
+      </div>
+
+      <form className="add-player-inputs">
 
         <input
           type="text"
@@ -52,8 +59,8 @@ class PlayerForm extends Component {
 
       </form>
 
-      <div className={"player-add-success-" + this.state.addSuccessful}>
-      Player successfully added
+      <div className={"success-message player-add-success-" + this.state.addSuccessful}>
+      {this.state.name} Added to Game!
     </div>
     </article>
     )

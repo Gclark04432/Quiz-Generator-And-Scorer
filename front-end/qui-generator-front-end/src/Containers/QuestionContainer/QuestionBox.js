@@ -46,8 +46,14 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, questions, player
 
     return (
       <section className="question-box">
-      <Question currentQuestion={questions[questionIndex]}/>
-      <Answer currentQuestion={questions[questionIndex]} handleAnswerClicked={checkAnswerCorrect} handleNextQuestion={handleNextQuestion} playerCount={playerCount} shuffledAnswers={shuffledAnswers}/>
+        <Question currentQuestion={questions[questionIndex]}/>
+        <Answer
+          currentQuestion={questions[questionIndex]}
+          handleAnswerClicked={checkAnswerCorrect}
+          handleNextQuestion={handleNextQuestion}
+          playerCount={playerCount}
+          shuffledAnswers={shuffledAnswers}
+        />
       </section>
     )
   }
