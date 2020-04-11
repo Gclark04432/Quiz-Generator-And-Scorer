@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Answer.css';
 
-function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, playerCount }){
+function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, playerCount, shuffledAnswers }){
   const [answersGiven, setAnswersGiven] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
@@ -26,30 +26,6 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
   const handleAnswerSelected = (e) => {
       setAnswersGiven(answersGiven + 1);
   }
-
-    const possibleAnswers = [];
-    if (currentQuestion.correct_answer){
-    possibleAnswers.push(currentQuestion.correct_answer);
-    } else {
-      possibleAnswers.push(currentQuestion.correctAnswer);
-    }
-    if (currentQuestion.incorrect_answers){
-      for (let i = 0; i < currentQuestion.incorrect_answers.length; i++){
-        possibleAnswers.push(currentQuestion.incorrect_answers[i])
-      }
-    } else {
-      for (let i = 0; i < currentQuestion.incorrectAnswers.length; i++){
-        possibleAnswers.push(currentQuestion.incorrectAnswers[i])
-      }
-    }
-
-    const shuffledAnswers = [];
-    while (shuffledAnswers.length !== 4) {
-      var nextAnswerIndex = Math.floor(Math.random() * possibleAnswers.length);
-      if (!shuffledAnswers.includes(possibleAnswers[nextAnswerIndex])){
-        shuffledAnswers.push(possibleAnswers[nextAnswerIndex]);
-      }
-    }
 
     const randomAnswers = shuffledAnswers.map((answer, index) => {
       return(
