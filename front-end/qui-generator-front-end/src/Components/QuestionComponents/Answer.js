@@ -10,7 +10,7 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
       setRevealed(true);
       setAnswersGiven(0);
     }
-  }, [answersGiven])
+  }, [answersGiven, playerCount])
 
   if(!currentQuestion) return null;
 
@@ -19,8 +19,6 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
     true
     : false;
   }
-
-  let answersAllGiven = false;
 
   const handleAnswerSelected = (e) => {
       setAnswersGiven(answersGiven + 1);
@@ -37,16 +35,16 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
       )
     })
 
-    const nextQuestionClicked = () => {
+    const nextQuestionClicked = (e) => {
       setRevealed(false);
-      handleNextQuestion();
+      handleNextQuestion(e.target);
     }
 
     return (
       <div className="possible-answers">
       {randomAnswers}
       <button onClick={() => setRevealed(true)}>Reveal Answer</button>
-      <button onClick={nextQuestionClicked}>Next Question</button>
+      <button className="next" onClick={nextQuestionClicked}>Next Question</button>
       </div>
     )
 

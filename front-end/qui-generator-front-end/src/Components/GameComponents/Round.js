@@ -12,7 +12,7 @@ function Round({questions, roundNumber, getRoundQuestions, difficulty, genre}) {
   return (
     <div className="round">
     <h1>Round {roundNumber} : {genre}</h1>
-    <h4>{difficulty}</h4>
+    <h4>Difficulty: {difficulty}</h4>
     <Link to="/questions" onClick={handleBeginRoundClick}>Begin Round</Link>
     </div>
   )

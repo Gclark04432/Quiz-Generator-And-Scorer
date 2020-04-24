@@ -33,9 +33,12 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, questions, player
     }
   }
 
-  const handleNextQuestion = () => {
-    console.log(questionIndex+1);
+  const handleNextQuestion = (button) => {
+    if (questions.length !== questionIndex + 1 )
     setQuestionIndex(questionIndex + 1);
+    else {
+      button.classList.add("-round")
+    }
   }
 
   const checkAnswerCorrect = (response, answersAllGiven) => {
