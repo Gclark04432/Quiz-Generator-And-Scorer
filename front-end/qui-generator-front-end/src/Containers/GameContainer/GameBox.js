@@ -5,7 +5,7 @@ import PlayerList from '../../Components/PlayerComponents/PlayerListComponents/P
 
 import './GameBox.css';
 
-function GameBox({ handleGameAdd, handlePlayerAdd, players }) {
+function GameBox({ handleGameAdd, handlePlayerAdd, players, gameRounds }) {
 
   const handleGameSubmit = (difficulty, genre) => {
     handleGameAdd(difficulty, genre)
@@ -16,7 +16,7 @@ function GameBox({ handleGameAdd, handlePlayerAdd, players }) {
       <PlayerForm handlePlayerAdd={handlePlayerAdd}/>
       <PlayerList players={players}/>
       <br/> <br/>
-      <GameForm handleGameSubmit={handleGameSubmit}/>
+      <GameForm handleGameSubmit={handleGameSubmit} gameRounds={gameRounds}/>
     </section>
   )
 }

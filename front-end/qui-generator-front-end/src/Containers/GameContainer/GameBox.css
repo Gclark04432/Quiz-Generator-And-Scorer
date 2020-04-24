@@ -1,10 +1,7 @@
 .game-box {
-  align-items: center;
-  justify-content: center;
-  width: 90%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 90%;
-  margin-left: 5%;
+  overflow: scroll;
 }

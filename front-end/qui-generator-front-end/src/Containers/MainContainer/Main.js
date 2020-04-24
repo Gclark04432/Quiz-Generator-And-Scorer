@@ -140,7 +140,7 @@ class Main extends Component{
           <Router>
           <main className="main">
             <nav>
-            <ul>
+            <ul className="nav-ul">
             <li>
             <Link to="/">Home Page</Link>
             </li>
@@ -159,6 +159,7 @@ class Main extends Component{
               handleGameAdd={this.handleGameAdd}
               handlePlayerAdd={this.handlePlayerAdd}
               players={this.state.players}
+              gameRounds={this.state.gameRounds}
             />
             </Route>
 

@@ -11,8 +11,9 @@ function PlayerList({players}) {
   })
 
   return (
-    <article className="player-list">
-      <ul>
+    <article>
+      <p className="player-list-heading">Players in game</p>
+      <ul className="player-list">
         {addedPlayers}
       </ul>
     </article>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './GameForm.css';
 
-function GameForm({ handleGameSubmit }) {
+function GameForm({ handleGameSubmit, gameRounds }) {
 
   const [difficulty, setDifficulty] = useState("");
 
@@ -15,7 +15,12 @@ function GameForm({ handleGameSubmit }) {
     setDifficulty(e.target.value);
   }
 
+  const roundsList = gameRounds.map(round => {
+    return <li key={round.id} className="round-in-game">{round[0].category}: {round[0].difficulty}</li>
+  })
+
   return (
+    <>
     <section className="game-form">
 
       <div className="add-round-text">
@@ -79,6 +84,14 @@ function GameForm({ handleGameSubmit }) {
 
       </form >
     </section>
+
+    <section className="round-list">
+      <p className="rounds-in-game-header">Rounds in game</p>
+      <ul className="rounds-list">
+        {roundsList}
+      </ul>
+    </section>
+    </>
   )
 }
 
