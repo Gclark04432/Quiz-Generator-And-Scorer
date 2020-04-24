@@ -79,7 +79,7 @@ class Main extends Component{
 
   generateQuestions(){
 
-    fetch(`https://opentdb.com/api.php?amount=10&category=${this.state.genre}&type=multiple`)
+    fetch(`https://opentdb.com/api.php?amount=10&category=${this.state.genre}&difficulty=${this.state.difficulty}&type=multiple`)
       .then(res => res.json())
       .then(data => data.results)
       .then(questions => this.setState({questions: questions},() => this.questionsToAdd()))

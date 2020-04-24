@@ -29,7 +29,7 @@ class PlayerForm extends Component {
     setTimeout(() => {
       this.setState({name: ""})
       this.setState({addSuccessful: false})
-    },2000)
+    },1000)
   }
 
   render(){
