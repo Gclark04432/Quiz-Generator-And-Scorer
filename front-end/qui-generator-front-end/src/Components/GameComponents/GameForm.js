@@ -1,18 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './GameForm.css';
 
 function GameForm({ handleGameSubmit }) {
 
+  const [difficulty, setDifficulty] = useState("");
+
   const formSubmitted = (e) => {
     e.preventDefault();
-    console.log(e.target.elements);
-    handleGameSubmit(e.target.elements[3].value, e.target.elements[4].value);
+    handleGameSubmit(difficulty, e.target.elements[0].value);
+  }
+
+  const handleDifficultyChange = (e) => {
+    setDifficulty(e.target.value);
   }
 
   return (
     <section className="game-form">
-      <form onSubmit={formSubmitted}>
+
+      <div className="add-round-text">
+        <h2>
+          Add Question Rounds Below
+        </h2>
+      </div>
+
+      <form className="add-round-form" onSubmit={formSubmitted}>
 
       <select className="genre-select">
         <option value="9">General Knowledge</option>
@@ -43,21 +55,21 @@ function GameForm({ handleGameSubmit }) {
       <section className="radio-container">
         <div className="radio">
           <label>
-            <input type="radio" value="easy" />
+            <input type="radio" name="difficulty" value="easy" onChange={handleDifficultyChange}/>
             Easy
           </label>
         </div>
 
         <div className="radio">
           <label>
-            <input type="radio" value="medium" />
+            <input type="radio" name="difficulty" value="medium" onChange={handleDifficultyChange}/>
             Medium
           </label>
         </div>
 
         <div className="radio">
           <label>
-            <input type="radio" value="hard" />
+            <input type="radio" name="difficulty" value="hard" onChange={handleDifficultyChange}/>
             Hard
           </label>
         </div>

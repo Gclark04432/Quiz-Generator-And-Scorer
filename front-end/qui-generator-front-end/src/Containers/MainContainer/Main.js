@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ScoreBox from '../ScoreContainer/ScoreBox.js';
 import QuestionBox from '../QuestionContainer/QuestionBox.js';
 import GameBox from '../GameContainer/GameBox.js';
 import GameList from '../../Components/GameComponents/GameList.js';
@@ -17,21 +16,31 @@ class Main extends Component{
 
   constructor(props) {
     super(props);
-    this.state = {
-      players:[],
-      gameRounds: [],
-      currentRoundId: 1,
-      questions: [],
-      difficulty: "easy",
-      genre: 11,
-      currentPlayerId: null,
-      playerCount: 0
-    };
+    this.state = this.getInitialState();
     this.handlePlayerAdd = this.handlePlayerAdd.bind(this);
     this.handleGameAdd = this.handleGameAdd.bind(this);
     this.handleAnswerClicked = this.handleAnswerClicked.bind(this);
     this.playerTurn = this.playerTurn.bind(this);
     this.getQuestionsForRound = this.getQuestionsForRound.bind(this);
+  }
+
+  getInitialState(){
+    return (
+      {
+        players:[],
+        gameRounds: [],
+        currentRoundId: 1,
+        questions: [],
+        difficulty: "easy",
+        genre: 11,
+        currentPlayerId: null,
+        playerCount: 0
+      }
+    )
+  }
+
+  resetState(){
+    this.setState(this.getInitialState);
   }
 
   questionsToAdd(){
@@ -70,7 +79,7 @@ class Main extends Component{
 
   generateQuestions(){
 
-    fetch(`https://opentdb.com/api.php?amount=10&category=${this.state.genre}&difficulty=${this.state.difficulty}&type=multiple`)
+    fetch(`https://opentdb.com/api.php?amount=10&category=${this.state.genre}&type=multiple`)
       .then(res => res.json())
       .then(data => data.results)
       .then(questions => this.setState({questions: questions},() => this.questionsToAdd()))

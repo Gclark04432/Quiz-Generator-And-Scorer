@@ -34,6 +34,7 @@ function QuestionBox({ genre, difficulty, handleAnswerClicked, questions, player
   }
 
   const handleNextQuestion = () => {
+    console.log(questionIndex+1);
     setQuestionIndex(questionIndex + 1);
   }
 

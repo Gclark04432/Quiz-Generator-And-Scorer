@@ -4,10 +4,7 @@ import './QuestionComponent.css';
 function Question({ currentQuestion }) {
 
   if (!currentQuestion) return null;
-  let changedQuestion = currentQuestion.question;
-  if (changedQuestion.includes("&#039;")){
-    changedQuestion = currentQuestion.question.replace(/&#039;/g, "'");
-  }
+  let changedQuestion = currentQuestion.question.replace(/&#039;/g, "'");
   changedQuestion = changedQuestion.replace(/&quot;/g, '"');
   changedQuestion = changedQuestion.replace(/&amp;/g, '&');
   changedQuestion = changedQuestion.replace(/&eacute;/g, 'é');

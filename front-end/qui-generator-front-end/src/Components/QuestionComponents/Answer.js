@@ -8,7 +8,6 @@ function Answer({ currentQuestion, handleAnswerClicked, handleNextQuestion, play
   useEffect(() => {
     if (answersGiven === playerCount){
       setRevealed(true);
-      answersAllGiven = true;
       setAnswersGiven(0);
     }
   }, [answersGiven])

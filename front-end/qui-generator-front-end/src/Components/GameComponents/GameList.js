@@ -14,12 +14,12 @@ function GameList({getRoundQuestions, gameRounds, genre, difficulty}) {
           questions={gameRound[i]}
           roundNumber={id+1}
           getRoundQuestions={getRoundQuestions}
-          difficulty={difficulty}
-          genre={genre}
+          difficulty={gameRound[i].difficulty}
+          genre={gameRound[i].category}
         />
       )
-      setRoundNumber(id+1)
     }
+    setRoundNumber(id+1)
     })
 
     return (

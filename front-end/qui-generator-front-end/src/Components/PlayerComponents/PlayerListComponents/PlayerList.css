@@ -1,7 +1,13 @@
 .player-in-game {
   border-radius: 20px;
   color: #820933;
-  padding: 0;
-  margin: 5px;
   text-align: center;
+  font-size: 20px;
+  background-color: white;
+}
+
+.player-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
